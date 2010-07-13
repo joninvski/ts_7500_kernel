@@ -192,7 +192,7 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/sun4u/sparc64/ \
 
 ARCH		?= arm
 #CROSS_COMPILE	?= arm-linux-
-CROSS_COMPILE	?= ../../tools/arm-uclibc-3.4.6/bin/arm-linux-
+CROSS_COMPILE	?= /home/workspace/plaquinhas/kernel/arm-uclibc-3.4.6/bin/arm-linux-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
