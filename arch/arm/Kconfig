@@ -676,11 +676,22 @@ config NO_IDLE_HZ
 	  to have accurate timekeeping with dynamic tick.
 
 config HZ
-	int
+	int "Kernel HZ (default timer ticks per second)"
+    range 32 1024
 	default 128 if ARCH_L7200
 	default 200 if ARCH_EBSA110 || ARCH_S3C2410
 	default OMAP_32K_TIMER_HZ if ARCH_OMAP && OMAP_32K_TIMER
-	default 100
+	default 1000
+    help
+      If you're using a system clock derived from the 32768 Hz
+      hardware clock, this software tick rate should divide it
+      exactly:  use a power-of-two value, such as 128 or 256,
+      to reduce timing errors.
+
+      When using a higher precision system clock, like one using
+      a Timer/Counter unit (often in the 5-10 MHz range), it's
+      safer to use a decimal values like 100 or 500.
+
 
 config AEABI
 	bool "Use the ARM EABI to compile the kernel"
